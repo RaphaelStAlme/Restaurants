@@ -1,0 +1,31 @@
+1) Created object model before and copy multiple time same object and replace empty space by food information.
+	{
+          'id': 1,
+          'imageUrl': 'https://i.imgur.com/0umadnY.jpg',
+          'name': 'Burger',
+          'description': "A burger is a sandwich consisting of one or more cooked patties of ground meat, " +
+            "usually beef, placed inside a sliced bread roll or bun.",
+          'deliciousness': 4
+        },
+
+2) Added v-for in div class "card shadow-1" element like that:
+	<div class="card shadow-1" v-for="food in foods" :key="food.id">
+   And replace static information by food data class thanks to curly braces and :src for image.
+	<img :src=food.imageUrl width="198" height="180">
+
+3) I used the same process like one part of this exercise.
+
+4) I created new vue named FoodCard in components directory and after i imported "food-card" composant by defined "food-card" in components property of IndexPage like this.
+	"food-card": require("components/FoodCard.vue").default,
+   And replace old template element by <food-card> with for loop, key and prop food.
+      <food-card class="card shadow-1" v-for="food in foods" :key="food.id" :food="food"></food-card>
+   Before previous steps, i moved div which display food-card in FoodCard.vue and after that i created props foods in props and i declared it as Object.
+	export default {
+  	    props: {
+    		'food': Object
+  		}
+	}
+
+5) I declared an id field in food object and in food-card component, i added :key which is equals to food.id
+
+
